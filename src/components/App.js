@@ -8,6 +8,9 @@ const App = () => {
     document.addEventListener("keydown", function (event) {
       if (event.keyCode === 13) {
         let timeremaining = Math.floor(event.target.value);
+        if (timeremaining < 0) {
+          timeremaining = 0;
+        }
         setRemainingTime(timeremaining);
       }
     });
