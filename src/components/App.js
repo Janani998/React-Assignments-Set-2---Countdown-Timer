@@ -4,17 +4,18 @@ import "../styles/App.css";
 const App = () => {
   // write your code here
   const [remainingTime, setRemainingTime] = useState(0);
+
   const handleKeyDown = (event) => {
-    document.addEventListener("keydown", function (event) {
-      if (event.keyCode === 13) {
-        let timeremaining = Math.floor(event.target.value);
-        if (timeremaining < 0) {
-          timeremaining = 0;
-        }
-        setRemainingTime(timeremaining);
+    if (event.keyCode === 13) {
+      let timeremaining = event.target.value;
+      if (isNaN(timeremaining) || timeremaining < 0) {
+        timeremaining = 0;
       }
-    });
+      setRemainingTime(Math.floor(timeremaining));
+    }
   };
+
+  document.addEventListener("keydown", (event) => handleKeyDown(event));
 
   useEffect(() => {
     if (remainingTime > 0) {
