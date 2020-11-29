@@ -32,10 +32,7 @@ const App = () => {
       <div id="whole-center">
         <h1>
           Reverse countdown for
-          <input
-            id="timeCount"
-            onKeyDown={(event) => handleKeyDown(event)}
-          />{" "}
+          <input id="timeCount" onKeyDown={(event) => handleKeyDown(event)} />
           sec.
         </h1>
       </div>
